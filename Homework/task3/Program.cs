@@ -1,15 +1,49 @@
-﻿int ShowEvenNumber = (int array)
+﻿//Напишите программу, которая перевернёт одномерный массив (первый элемент станет последним, второй – предпоследним и т.д.)
+int[] ArrayInput()
 {
-    int sum = 0;
-    for(int i = 0; i < array.Length;i++)
+    Console.WriteLine("Введите размер массива");
+    int ArrayLenght = Convert.ToInt32(Console.ReadLine());
+    int[] array = new int[ArrayLenght];
+    int i = 0;
+    while (i < ArrayLenght)
     {
-        if(array[i] % 2 == 0)
-        {
-            sum++;
-        }
+        Console.WriteLine($"Введите {i + 1}-е число:");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+        i++;
     }
-    return sum;
+    return array;
 }
 
+int[] array = ArrayInput();
 
- Console.WriteLine($"Количество четных чисел {ShowEvenNumber = (sum)}");
+Console.Write($"Ваш массив ");
+Console.WriteLine(" ");
+
+foreach (int value in array)
+{
+    Console.Write($"{value}, ");
+}
+
+int min = 0;
+int max = array.Length;
+int digit1=0;
+int digit2=0;  
+{
+    while (max>min)
+    {
+        digit1= array[max-1];
+        digit2= array[min];
+        array[max-1]=digit2;
+        array[min]=digit1;
+        max--;
+        min++;
+    }
+}
+
+Console.WriteLine(" ");
+Console.WriteLine($"Ваш зеркальный массив ");
+
+foreach (int vb in array)
+{
+    Console.Write($"{vb}, ");
+}
